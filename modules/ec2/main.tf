@@ -1,14 +1,14 @@
 resource "aws_security_group" "sg" {
   name        = "${var.component_name}-${var.env}-sg"
-  description = "Inbound allow for $ {var.component_name}"
-  
+  description = "Inbound allow for ${var.component_name}"
+
   ingress {
     from_port   = 22
     to_port     = 22
     protocol    = "TCP"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  
+
   ingress {
     from_port   = var.app_port
     to_port     = var.app_port
@@ -20,7 +20,7 @@ resource "aws_security_group" "sg" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]   
+    cidr_blocks = ["0.0.0.0/0"]
   }
 }
 
