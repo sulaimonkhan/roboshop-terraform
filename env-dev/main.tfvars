@@ -1,4 +1,6 @@
 env = "dev"
+domain_name    = "sulaimondevopsb72.online"
+zone_id        = "Z089389422YOGJM26LZ9K"
 
 db_instances = {
   mongodb = {
