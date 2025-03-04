@@ -1,4 +1,4 @@
-env="dev"
+env = "dev"
 
 db_instances = {
   mongodb = {
