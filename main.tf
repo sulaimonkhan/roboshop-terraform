@@ -8,14 +8,14 @@ module "db_instances" {
 }
 
 
-module "app_instance" {
-  depends_on    = [module.db_instances]
+module "app_instances" {
+  depends_on     = [module.db_instances]
   for_each       = var.app_instances
   source         = "./modules/ec2"
   env            = var.env
   app_port       = each.value["app_port"]
   component_name = each.key
-  instance_type  = each.value["instanc e_type"]
+  instance_type  = each.value["instance_type"]
 }
 
 
