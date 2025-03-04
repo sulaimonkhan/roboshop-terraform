@@ -21,7 +21,7 @@ db_instances = {
   }
 }
 
-app_instance = {
+app_instances = {
   
   catalogue = {
     app_port      = 8080
