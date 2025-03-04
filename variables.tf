@@ -1,4 +1,4 @@
 variable "env" {}
 variable "instances" {}
-variable "app_instance" {}
+variable "app_instances" {}
 variable "web_instances" {}
