@@ -43,14 +43,15 @@ resource "null_resource" "ansible-pull" {
       host     = aws_instance.instance.private_ip
     }
    
+    
+    inline = [
+      "sudo labauto ansible",
+      "ansible-pull -i localhost, -U https://github.com/sulaimonkhan/roboshop-ansible roboshop.yml  -e env=${var.env} -e app_name=${var.component_name}" 
+    ]
+  }
+} 
 
-     inline = [
-       "sudo labauto ansible",
-       "ansible-pull -i localhost, -U https://github.com/sulaimonkhan/roboshop-ansible roboshop.yml -e env=${var.env} -e app_name=${var.component_name}"
-     ]
-   }    
 
-}
 
 resource "aws_route53_record" "record" {
   zone_id = var.zone_id
@@ -60,6 +61,11 @@ resource "aws_route53_record" "record" {
   records = [aws_instance.instance.private_ip]
 }
  
+inline = [
+      "ansible-pull -i localhost, -U https://github.com/sulaimonkhan/roboshop-ansible roboshop.yml  -e env=${var.env} -e app_name=${var.component_name}" 
+    ]
+  }
+} 
         
  
    
